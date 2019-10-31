@@ -303,6 +303,87 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/31/%E5%A0%86%E7%9A%84C%E8%AF%AD%E8%A8%80%E8%A1%A8%E7%A4%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wangky">
+      <meta itemprop="description" content="emmmm">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="塔的小站">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            
+            <a href="/2019/10/31/%E5%A0%86%E7%9A%84C%E8%AF%AD%E8%A8%80%E8%A1%A8%E7%A4%BA/" class="post-title-link" itemprop="url">堆的C语言表示</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-31 17:00:53 / 修改时间：17:13:30" itemprop="dateCreated datePublished" datetime="2019-10-31T17:00:53+08:00">2019-10-31</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">"stdio.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">"stdlib.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ElementType int</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">HNode</span> *<span class="title">Heap</span>;</span> <span class="comment">/* 堆的类型定义 */</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">HNode</span> &#123;</span></span><br><span class="line">    ElementType *Data; <span class="comment">/* 存储元素的数组 */</span></span><br><span class="line">    <span class="keyword">int</span> Size;          <span class="comment">/* 堆中当前元素个数 */</span></span><br><span class="line">    <span class="keyword">int</span> Capacity;      <span class="comment">/* 堆的最大容量 */</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">typedef</span> Heap MaxHeap; <span class="comment">/* 最大堆 */</span></span><br><span class="line"><span class="keyword">typedef</span> Heap MinHeap; <span class="comment">/* 最小堆 */</span></span><br><span class="line"> </span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXDATA 1000  <span class="comment">/* 该值应根据具体情况定义为大于堆中所有可能元素的值 */</span></span></span><br><span class="line"> </span><br><span class="line"><span class="function">MaxHeap <span class="title">CreateHeap</span><span class="params">( <span class="keyword">int</span> MaxSize )</span></span></span><br><span class="line"><span class="function"></span>&#123; <span class="comment">/* 创建容量为MaxSize的空的最大堆 */</span></span><br><span class="line"> </span><br><span class="line">    MaxHeap H = (MaxHeap)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct HNode));</span><br><span class="line">    H-&gt;Data = (ElementType *)<span class="built_in">malloc</span>((MaxSize+<span class="number">1</span>)*<span class="keyword">sizeof</span>(ElementType));</span><br><span class="line">    <span class="comment">/* 因为data[0]会被定义成大于数组内仍任何一个元素所以要创建Maxsize+1大小*/</span></span><br><span class="line">    H-&gt;Size = <span class="number">0</span>;</span><br><span class="line">    H-&gt;Capacity = MaxSize;</span><br><span class="line">    H-&gt;Data[<span class="number">0</span>] = MAXDATA; <span class="comment">/* 定义"哨兵"为大于堆中所有可能元素的值*/</span></span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> H;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">IsFull</span><span class="params">( MaxHeap H )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (H-&gt;Size == H-&gt;Capacity);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Insert</span><span class="params">( MaxHeap H, ElementType X )</span></span></span><br><span class="line"><span class="function"></span>&#123; <span class="comment">/* 将元素X插入最大堆H，其中H-&gt;Data[0]已经定义为哨兵 */</span></span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">  </span><br><span class="line">    <span class="keyword">if</span> ( IsFull(H) ) &#123; </span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"最大堆已满"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    i = ++H-&gt;Size; <span class="comment">/* i指向插入后堆中的最后一个元素的位置 */</span></span><br><span class="line">    <span class="keyword">for</span> ( ; H-&gt;Data[i/<span class="number">2</span>] &lt; X; i/=<span class="number">2</span> )</span><br><span class="line">        H-&gt;Data[i] = H-&gt;Data[i/<span class="number">2</span>]; <span class="comment">/* 上滤X */</span></span><br><span class="line">    H-&gt;Data[i] = X; <span class="comment">/* 将X插入 */</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ERROR -1 <span class="comment">/* 错误标识应根据具体情况定义为堆中不可能出现的元素值 */</span></span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">IsEmpty</span><span class="params">( MaxHeap H )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (H-&gt;Size == <span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function">ElementType <span class="title">DeleteMax</span><span class="params">( MaxHeap H )</span></span></span><br><span class="line"><span class="function"></span>&#123; <span class="comment">/* 从最大堆H中取出键值为最大的元素，并删除一个结点 */</span></span><br><span class="line">    <span class="keyword">int</span> Parent, Child;</span><br><span class="line">    ElementType MaxItem, X;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">if</span> ( IsEmpty(H) ) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"最大堆已为空"</span>);</span><br><span class="line">        <span class="keyword">return</span> ERROR;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    MaxItem = H-&gt;Data[<span class="number">1</span>];                   <span class="comment">/* 取出根结点存放的最大值 */</span></span><br><span class="line">                                            <span class="comment">/* 用最大堆中最后一个元素从根结点开始向上过滤下层结点 */</span></span><br><span class="line">    X = H-&gt;Data[H-&gt;Size--];                 <span class="comment">/* 注意当前堆的规模要减小 */</span></span><br><span class="line">    <span class="keyword">for</span>( Parent=<span class="number">1</span>; Parent*<span class="number">2</span>&lt;=H-&gt;Size; Parent=Child ) &#123;</span><br><span class="line">        Child = Parent * <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>( (Child!=H-&gt;Size) &amp;&amp; (H-&gt;Data[Child]&lt;H-&gt;Data[Child+<span class="number">1</span>]) )<span class="comment">/*并且Child不是最后一个结点*/</span></span><br><span class="line">            Child++;                        <span class="comment">/* Child指向左右子结点的较大者 */</span></span><br><span class="line">        <span class="keyword">if</span>( X &gt;= H-&gt;Data[Child] ) <span class="keyword">break</span>;    <span class="comment">/* 找到了合适位置 */</span></span><br><span class="line">        <span class="keyword">else</span>  <span class="comment">/* 下滤X */</span></span><br><span class="line">            H-&gt;Data[Parent] = H-&gt;Data[Child];</span><br><span class="line">    &#125;</span><br><span class="line">    H-&gt;Data[Parent] = X;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> MaxItem;</span><br><span class="line">&#125; </span><br><span class="line"> </span><br><span class="line"><span class="comment">/*----------- 建造最大堆 -----------*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PercDown</span><span class="params">( MaxHeap H, <span class="keyword">int</span> p )</span></span></span><br><span class="line"><span class="function"></span>&#123; <span class="comment">/* 下滤：将H中以H-&gt;Data[p]为根的子堆调整为最大堆 */</span></span><br><span class="line">    <span class="keyword">int</span> Parent, Child;</span><br><span class="line">    ElementType X;</span><br><span class="line"> </span><br><span class="line">    X = H-&gt;Data[p]; <span class="comment">/* 取出根结点存放的值 */</span></span><br><span class="line">    <span class="keyword">for</span>( Parent=p; Parent*<span class="number">2</span>&lt;=H-&gt;Size; Parent=Child ) &#123;</span><br><span class="line">        Child = Parent * <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>( (Child!=H-&gt;Size) &amp;&amp; (H-&gt;Data[Child]&lt;H-&gt;Data[Child+<span class="number">1</span>]) )</span><br><span class="line">            Child++;  <span class="comment">/* Child指向左右子结点的较大者 */</span></span><br><span class="line">        <span class="keyword">if</span>( X &gt;= H-&gt;Data[Child] ) <span class="keyword">break</span>; <span class="comment">/* 找到了合适位置 */</span></span><br><span class="line">        <span class="keyword">else</span>  <span class="comment">/* 下滤X */</span></span><br><span class="line">            H-&gt;Data[Parent] = H-&gt;Data[Child];</span><br><span class="line">    &#125;</span><br><span class="line">    H-&gt;Data[Parent] = X;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BuildHeap</span><span class="params">( MaxHeap H )</span></span></span><br><span class="line"><span class="function"></span>&#123; <span class="comment">/* 调整H-&gt;Data[]中的元素，使满足最大堆的有序性  */</span></span><br><span class="line">  <span class="comment">/* 这里假设所有H-&gt;Size个元素已经存在H-&gt;Data[]中 */</span></span><br><span class="line"> </span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/* 从最后一个结点的父节点开始，到根结点1 */</span></span><br><span class="line">    <span class="keyword">for</span>( i = H-&gt;Size/<span class="number">2</span>; i&gt;<span class="number">0</span>; i-- )</span><br><span class="line">        PercDown( H, i );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>C语言堆代码自存</p>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2019/10/31/%E5%A0%86%E7%9A%84C%E8%AF%AD%E8%A8%80%E8%A1%A8%E7%A4%BA/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/30/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E8%BE%9B%E9%85%B8%E5%8F%B2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -558,9 +639,18 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span>
+        
       </div>
     
   </nav>
@@ -675,6 +765,12 @@
   
 <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
   
+  
+  
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/schemes/fireworks.js"></script>
+
 </body>
 
 </html>

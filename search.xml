@@ -19,7 +19,7 @@
 <p>hexo s，</p>
 <p>localhost:4000，打开后标签打开后应该是空着的</p>
 <p>只有在一个md文件添加了tags后标签页才会显示标签数量。</p>
-<p>随便打开一个你的md文件，在上面如下添加tags，归到tags这个标签上( - 后有空格)</p>
+<p>随便打开一个你source/_posts里的md文件，在上面如下添加tags，归到tags这个标签上( - 后有空格)</p>
 <p><img src="http://tva1.sinaimg.cn/large/007X8olVly1g8hlrbzafzj30fx04kmx1.jpg" alt="avatar"></p>
 <p>这样再</p>
 <p>hexo g</p>
